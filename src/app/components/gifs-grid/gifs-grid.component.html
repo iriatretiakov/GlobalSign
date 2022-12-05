@@ -1,5 +1,11 @@
 <div class="gifs">
-    <div class="gif" *ngFor="let gif of gifs">
-        <img [src]="gif.url" [alt]="gif.id"/>
-    </div>
+    <mat-card class="gif" *ngFor="let gif of gifs">
+        <mat-card-content>
+            <mat-card-title>{{gif.id}}</mat-card-title>
+            <img mat-card-image [src]="gif.url" [alt]="gif.id" />
+            <mat-card-actions>
+                <app-gif-actions></app-gif-actions>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
 </div>

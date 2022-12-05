@@ -27,4 +27,8 @@ export class ApiGifsComponent implements OnInit, OnDestroy {
       })
   }
 
+  search(searchTerm: string) {
+    this.giphyApiService.searchGif(searchTerm);
+  }
+
 }

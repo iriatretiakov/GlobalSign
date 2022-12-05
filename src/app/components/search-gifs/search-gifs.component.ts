@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { GiphyApiService } from 'src/app/services/giphy-api.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-gifs',
@@ -7,15 +6,15 @@ import { GiphyApiService } from 'src/app/services/giphy-api.service';
   styleUrls: ['./search-gifs.component.css']
 })
 export class SearchGifsComponent implements OnInit {
-
-  constructor(private giphyApiService: GiphyApiService) { }
+  @Output() searchGifs = new EventEmitter<string>();
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   search(searchTerm: string) {
     if(searchTerm != '') {
-      this.giphyApiService.searchGif(searchTerm);
+      this.searchGifs.emit(searchTerm);
     }
   }
 }

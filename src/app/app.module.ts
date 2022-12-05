@@ -8,7 +8,11 @@ import { GifsGridComponent } from './components/gifs-grid/gifs-grid.component';
 import { SearchGifsComponent } from './components/search-gifs/search-gifs.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+
 import { HttpClientModule } from '@angular/common/http';
+import { GifActionsComponent } from './components/gif-actions/gif-actions.component';
 
 
 @NgModule({
@@ -17,12 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
     UserGifsComponent,
     ApiGifsComponent,
     GifsGridComponent,
-    SearchGifsComponent
+    SearchGifsComponent,
+    GifActionsComponent
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatInputModule,
+    MatCardModule,
+    MatButtonModule,
     HttpClientModule
   ],
   providers: [],
