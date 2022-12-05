@@ -3,9 +3,11 @@
         <mat-card-content>
             <mat-card-title>{{gif.id}}</mat-card-title>
             <img mat-card-image [src]="gif.url" [alt]="gif.id" />
-            <mat-card-actions>
-                <app-gif-actions></app-gif-actions>
-            </mat-card-actions>
+            <div class="footer">
+                <mat-card-actions>
+                    <app-gif-actions [gif]="gif"></app-gif-actions>
+                </mat-card-actions>
+            </div>
         </mat-card-content>
     </mat-card>
 </div>
