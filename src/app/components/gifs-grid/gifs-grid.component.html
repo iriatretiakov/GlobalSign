@@ -5,7 +5,7 @@
             <img mat-card-image [src]="gif.url" [alt]="gif.id" />
             <div class="footer">
                 <mat-card-actions>
-                    <app-gif-actions [gif]="gif"></app-gif-actions>
+                    <app-gif-actions [gif]="gif" [gifState]="isSaved"></app-gif-actions>
                 </mat-card-actions>
             </div>
         </mat-card-content>

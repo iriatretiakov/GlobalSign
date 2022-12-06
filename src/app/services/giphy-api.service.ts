@@ -21,7 +21,8 @@ export class GiphyApiService {
         data: response.data.map((x:any) => { // TODO change when added pagination service 
           return {
             url: x.images.downsized.url,
-            id: x.id
+            id: x.id,
+            isAdded: false
         }}), 
         total: response.pagination.total_count, 
         offset: response.pagination.offset,
@@ -38,7 +39,8 @@ export class GiphyApiService {
         data: response.data.map((x:any) => { // TODO change when added pagination service 
           return {
             url: x.images.downsized.url,
-            id: x.id
+            id: x.id,
+            isAdded: false
         }}),
         total: response.pagination.total_count, 
         offset: response.pagination.offset,

@@ -17,13 +17,10 @@
     margin: 0 15px 16px 15px;
 }
 
-.mat-card-content {
-    width: 260px;
-    height: 280px;
-}
-
 .mat-card {
     position: relative;
+    max-width: 260px;
+    max-height: 280px;
 }
 
 .footer {
