@@ -13,8 +13,6 @@ export class SearchGifsComponent implements OnInit {
   }
 
   search(searchTerm: string) {
-    if(searchTerm != '') {
       this.searchGifs.emit(searchTerm);
-    }
   }
 }

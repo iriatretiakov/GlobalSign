@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Gif } from 'src/app/models/gif.interface';
+import { Gif } from 'src/app/models/gif.class';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { LocalGifsService } from 'src/app/services/local-gifs.service';
   styleUrls: ['./gif-actions.component.css']
 })
 export class GifActionsComponent implements OnInit {
-  @Input() gif: Gif = {url: '', id: ''};
+  @Input() gif: Gif = new Gif();
   @Input() gifState: boolean = false;
   constructor(private userGifService: LocalGifsService) { }
 

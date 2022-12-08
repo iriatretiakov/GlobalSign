@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Gif } from 'src/app/models/gif.interface';
+import { Gif } from 'src/app/models/gif.class';
 
 @Component({
   selector: 'app-gifs-grid',

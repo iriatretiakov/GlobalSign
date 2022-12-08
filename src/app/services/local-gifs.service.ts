@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { Gif } from '../models/gif.interface';
-import { GifsData } from '../models/gifs-data.interface';
+import { Gif } from '../models/gif.class';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalGifsService {
   
-  gifs = new BehaviorSubject<GifsData>({data: [], total:0, offset:0, pageSize:0}); 
+  gifs = new BehaviorSubject<Gif[]>([]); 
   constructor() { }
 
   getUpdatedData() {
     let userGifs = JSON.parse(localStorage.getItem('userGifs')!);
-    this.gifs.next({
-      data: userGifs,
-      total: 1,
-      offset: 0,
-      pageSize: 10    //TODO configurable
-    });
+    this.gifs.next(userGifs);
   }
 
   getGifs() {
@@ -26,6 +20,7 @@ export class LocalGifsService {
   }
 
   addGif(gif: Gif) {
+    gif.addedDate = new Date();
     let gifs = JSON.parse(localStorage.getItem('userGifs')!);
     if(gifs) {
       gifs.push(gif);
@@ -46,4 +41,4 @@ export class LocalGifsService {
     this.getUpdatedData();
   }
   
-}
+  }

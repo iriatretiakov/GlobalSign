@@ -1,3 +1,2 @@
-<p>user-gifs works!</p>
-<app-search-gifs></app-search-gifs>
+<app-search-gifs (searchGifs)="search($event)"></app-search-gifs>
 <app-gifs-grid [gifs] = "gifs" [isSaved]="true"></app-gifs-grid>

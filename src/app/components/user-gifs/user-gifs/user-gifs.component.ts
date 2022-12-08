@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Gif } from 'src/app/models/gif.interface';
-import { GifsData } from 'src/app/models/gifs-data.interface';
+import { Gif } from 'src/app/models/gif.class';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
-
 @Component({
   selector: 'app-user-gifs',
   templateUrl: './user-gifs.component.html',
@@ -12,20 +10,32 @@ import { LocalGifsService } from 'src/app/services/local-gifs.service';
 export class UserGifsComponent implements OnInit, OnDestroy {
 
   gifs: Gif[] = [];
-  subscripton: Subscription = new Subscription;
+  subscription: Subscription = new Subscription;
   
   constructor(private locaGifService: LocalGifsService) { }
 
   ngOnDestroy(): void {
-    this.subscripton.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {
     this.locaGifService.getUpdatedData();
-    this.subscripton = this.locaGifService.getGifs()
-      .subscribe((gifData: GifsData) => {
-        this.gifs = gifData.data;
+    this.subscription = this.locaGifService.getGifs()
+      .subscribe((gifData: Gif[]) => {
+        this.gifs = gifData;
       });
+  }
+
+  search(searchTerm: string) {
+    if(searchTerm != '') {
+    this.gifs = this.gifs
+      .filter(x => 
+        x.title.toLocaleLowerCase()
+          .includes(searchTerm.toLocaleLowerCase()));
+    }
+    else {
+      this.locaGifService.getUpdatedData(); 
+    }
   }
 
 }

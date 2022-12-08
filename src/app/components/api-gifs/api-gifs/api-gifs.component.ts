@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Gif } from 'src/app/models/gif.interface';
-import { GifsData } from 'src/app/models/gifs-data.interface';
+import { Gif } from 'src/app/models/gif.class';
 import { GiphyApiService } from 'src/app/services/giphy-api.service';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
 
@@ -29,13 +28,13 @@ export class ApiGifsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.gifSubscription = this.giphyApiService.getGifs()
-      .subscribe((response: GifsData) => {
-        this.gifs = response.data;
+      .subscribe((response: Gif[]) => {
+        this.gifs = response;
         this.filterGifs();
       });
     this.localGifSubscription = this.localGifService.getGifs()
-      .subscribe((response: GifsData) => {
-        this.localGifs = response.data;
+      .subscribe((response: Gif[]) => {
+        this.localGifs = response;
         this.filterGifs();
       });
     this.giphyApiService.getInitialData();
@@ -43,7 +42,12 @@ export class ApiGifsComponent implements OnInit, OnDestroy {
   }
 
   search(searchTerm: string) {
-    this.giphyApiService.searchGif(searchTerm);
+    if (searchTerm != '') {
+      this.giphyApiService.searchGif(searchTerm);
+    }
+    else {
+      this.giphyApiService.getInitialData();
+    }
   }
 
   private filterGifs() {
