@@ -1,7 +1,7 @@
 <div cdkDropList class="gifs" (cdkDropListDropped)="drop($event)">
     <mat-card cdkDrag [cdkDragDisabled]="isGridTypeApi()" class="gif" *ngFor="let gif of gifs">
         <mat-card-content>
-            <mat-card-title>{{gif.title}}</mat-card-title>
+            <mat-card-title matTooltip="{{gif.title}}" matTooltipPosition="above">{{gif.title}}</mat-card-title>
             <img mat-card-image [src]="gif.url" [alt]="gif.id" />
             <div class="footer">
                 <mat-card-actions>

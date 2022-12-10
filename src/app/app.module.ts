@@ -10,7 +10,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { GifActionsComponent } from './components/gif-actions/gif-actions.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -31,7 +31,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    DragDropModule 
+    DragDropModule,
+    MatTooltipModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
