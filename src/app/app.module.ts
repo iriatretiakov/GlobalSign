@@ -13,7 +13,7 @@ import { MatButtonModule } from "@angular/material/button";
 
 import { HttpClientModule } from '@angular/common/http';
 import { GifActionsComponent } from './components/gif-actions/gif-actions.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { GifActionsComponent } from './components/gif-actions/gif-actions.compon
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

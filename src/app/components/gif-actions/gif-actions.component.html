@@ -1,3 +1,3 @@
-<button mat-raised-button color="default">Primary</button>
-<button mat-raised-button color="warn" *ngIf="gifState" (click)="removeGif()">Warn</button>
-<button mat-raised-button color="primary" *ngIf="!gifState" (click)="addGif()">Success</button>
+<button mat-raised-button color="default" (click)="saveGif()">Save</button>
+<button mat-raised-button color="warn" *ngIf="!isApiType()" (click)="removeGif()">Remove</button>
+<button mat-raised-button color="primary" *ngIf="isApiType()" (click)="addGif()">Add</button>

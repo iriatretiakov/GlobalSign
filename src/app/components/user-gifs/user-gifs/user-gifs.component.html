@@ -1,2 +1,2 @@
 <app-search-gifs (searchGifs)="search($event)"></app-search-gifs>
-<app-gifs-grid [gifs] = "gifs" [isSaved]="true"></app-gifs-grid>
+<app-gifs-grid [gifs] = "gifs" [gridType]="gridType" (changeGifs)="orderItems($event)"></app-gifs-grid>

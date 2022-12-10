@@ -2,6 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Gif } from 'src/app/models/gif.class';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { ReorderGifs } from 'src/app/models/reorder-gifs.interface';
+import { GridType } from 'src/app/models/grid-type.enum';
+
 @Component({
   selector: 'app-user-gifs',
   templateUrl: './user-gifs.component.html',
@@ -11,16 +15,16 @@ export class UserGifsComponent implements OnInit, OnDestroy {
 
   gifs: Gif[] = [];
   subscription: Subscription = new Subscription;
-  
-  constructor(private locaGifService: LocalGifsService) { }
+  gridType: GridType = GridType.Local;
+  constructor(private localGifService: LocalGifsService) { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.locaGifService.getUpdatedData();
-    this.subscription = this.locaGifService.getGifs()
+    this.localGifService.getUpdatedData();
+    this.subscription = this.localGifService.getGifs()
       .subscribe((gifData: Gif[]) => {
         this.gifs = gifData;
       });
@@ -34,8 +38,12 @@ export class UserGifsComponent implements OnInit, OnDestroy {
           .includes(searchTerm.toLocaleLowerCase()));
     }
     else {
-      this.locaGifService.getUpdatedData(); 
+      this.localGifService.getUpdatedData(); 
     }
+  }
+
+  orderItems(changeItems: ReorderGifs) {
+    this.localGifService.changeGifPosition(changeItems);
   }
 
 }

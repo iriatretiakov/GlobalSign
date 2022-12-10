@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Gif } from 'src/app/models/gif.class';
+import { GridType } from 'src/app/models/grid-type.enum';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-gif-actions',
@@ -9,7 +11,8 @@ import { LocalGifsService } from 'src/app/services/local-gifs.service';
 })
 export class GifActionsComponent implements OnInit {
   @Input() gif: Gif = new Gif();
-  @Input() gifState: boolean = false;
+  @Input() gridType: GridType = GridType.Api;
+  @Output() saveFile = new EventEmitter<string>(); 
   constructor(private userGifService: LocalGifsService) { }
 
   ngOnInit(): void {
@@ -21,5 +24,13 @@ export class GifActionsComponent implements OnInit {
 
   removeGif() {
     this.userGifService.removeGif(this.gif);
+  }
+
+  isApiType() {
+    return this.gridType === GridType.Api;
+  }
+
+  saveGif() {
+    saveAs(this.gif.url, this.gif.title + '.gif');
   }
 }

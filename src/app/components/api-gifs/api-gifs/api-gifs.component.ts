@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Gif } from 'src/app/models/gif.class';
+import { GridType } from 'src/app/models/grid-type.enum';
 import { GiphyApiService } from 'src/app/services/giphy-api.service';
 import { LocalGifsService } from 'src/app/services/local-gifs.service';
 
@@ -14,6 +15,7 @@ export class ApiGifsComponent implements OnInit, OnDestroy {
   gifs: Gif[] = [];
   gifToShow: Gif[] = [];
   localGifs: Gif[] = [];
+  gridType: GridType = GridType.Api;
 
   gifSubscription: Subscription = new Subscription;
   localGifSubscription: Subscription = new Subscription;

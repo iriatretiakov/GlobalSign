@@ -1,11 +1,11 @@
-<div class="gifs">
-    <mat-card class="gif" *ngFor="let gif of gifs">
+<div cdkDropList class="gifs" (cdkDropListDropped)="drop($event)">
+    <mat-card cdkDrag [cdkDragDisabled]="isGridTypeApi()" class="gif" *ngFor="let gif of gifs">
         <mat-card-content>
             <mat-card-title>{{gif.title}}</mat-card-title>
             <img mat-card-image [src]="gif.url" [alt]="gif.id" />
             <div class="footer">
                 <mat-card-actions>
-                    <app-gif-actions [gif]="gif" [gifState]="isSaved"></app-gif-actions>
+                    <app-gif-actions [gif]="gif" [gridType]="gridType"></app-gif-actions>
                 </mat-card-actions>
             </div>
         </mat-card-content>
