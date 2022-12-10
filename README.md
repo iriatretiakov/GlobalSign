@@ -25,4 +25,4 @@ You can use any libs and tools and anything you find on the internet.
 ## Questions
 + Giphy api not to provided name of gif or any tag to search gifs by so I made search for stored gifs by gif tittle. Is it ok?
 + May be I should make any paginations for both list of gifs?
-+ Some strange description for ordering stored gifs. List of stored gifs is sorted by added date (when add new gifs) and user can reorder stored gifs by drag&drop. 
++ Some strange description for gifs order. List of stored gifs is sorted by added date (when add new gifs) and user can reorder stored gifs by drag&drop. 
