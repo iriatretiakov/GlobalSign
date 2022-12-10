@@ -1,6 +1,6 @@
-#Test project for GlobalSign
+# Test project for GlobalSign
 
-##Description
+## Description
 Develop GIF images storing app in Angular. User wants to have an app to keep their collection of GIF
 images so they can search them in convinient way and add them from Giphy. App will have only one
 screen with two components. Components are:
@@ -22,7 +22,7 @@ drop or anything else;
 Design and CSS are not a must but page should look nice.
 You can use any libs and tools and anything you find on the internet.
 
-##Questions
+## Questions
 Giphy api not to provided name of gif or any tag to search gifs by so I made search for stored gifs by gif tittle. Is it ok?
 May be I should make any paginations for both list of gifs?
 Some strange description for ordering stored gifs. List of stored gifs is sorted by added date (when add new gifs) and user can reorder stored gifs by drag&drop. 
