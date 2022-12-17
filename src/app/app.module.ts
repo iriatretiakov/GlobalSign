@@ -14,6 +14,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { GifActionsComponent } from './components/gif-actions/gif-actions.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ApiGifsComponent,
     GifsGridComponent,
     SearchGifsComponent,
-    GifActionsComponent
+    GifActionsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
